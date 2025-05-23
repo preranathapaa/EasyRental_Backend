@@ -10,7 +10,7 @@ use Exception;
 
 class BookApiController extends Controller
 {
-    
+
     public function index()
     {
         try {
@@ -28,10 +28,10 @@ class BookApiController extends Controller
                 'error' => $e->getMessage()
             ], 500);
         }
-    } 
+    }
 
 
-    
+
     public function book(Request $request)
     {
         try {
@@ -63,6 +63,7 @@ class BookApiController extends Controller
             $input['user_id'] = Auth::id();
 
             $booking = Book::create($input);
+            $booking->vehicle->update(['status' => 'booked']);
 
             return response()->json([
                 'message' => 'Vehicle booked successfully',
