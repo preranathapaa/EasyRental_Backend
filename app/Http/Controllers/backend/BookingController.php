@@ -15,7 +15,11 @@ class BookingController extends Controller
     public function index()
     {
         $bookings = Book::with(['vehicle','user'])->get();
-         return view("backend.bookings.index",compact('bookings')); 
+
+        // dd($bookings->toArray());
+         return view("backend.bookings.index",compact('bookings'));
+
+
     }
 
     /**

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $fillable=['user_id','book_date','dropoffdate','vehicle_id'];
+    protected $fillable=['user_id','book_date','dropoffdate','vehicle_id', 'status'];
 
     public function user()
     {

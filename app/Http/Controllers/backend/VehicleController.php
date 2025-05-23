@@ -94,8 +94,6 @@ class VehicleController extends Controller
     if ($request->hasFile('image')) {
         $imagePath = $request->file('image')->store('vehicles', 'public');
         $data['image'] = $imagePath;
-
-
     }
 
        $vehicle->update($data);
@@ -111,6 +109,6 @@ class VehicleController extends Controller
         $vehicle = Vehicle::findOrFail($id);
         $vehicle->delete();
 
-        return redirect()->route('vehicle.index');
+        return redirect()->route('vehicles.index');
     }
 }

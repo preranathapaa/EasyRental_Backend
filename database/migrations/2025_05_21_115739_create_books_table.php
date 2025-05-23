@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('book_date')->nullable();
             $table->string('dropoffdate')->nullable();
             $table->foreignId('vehicle_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('status')->default('available');
             $table->timestamps();
         });
     }
