@@ -22,6 +22,4 @@ Route::resource("/vehicles", VehicleController::class);
 
 Route::resource("/bookings", BookingController::class);
 
-
-
-
+Route::get('/bookings/{booking}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');

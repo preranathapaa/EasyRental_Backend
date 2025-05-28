@@ -19,9 +19,16 @@ class BookingController extends Controller
         // dd($bookings->toArray());
          return view("backend.bookings.index",compact('bookings'));
 
-
     }
 
+    public function cancel($id)
+    {
+        $booking = Book::findOrFail($id);
+        $booking->status = 'cancelled';
+        $booking->save();
+
+        return redirect()->route('bookings.index');
+    }
     /**
      * Show the form for creating a new resource.
      */

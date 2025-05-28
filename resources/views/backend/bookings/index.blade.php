@@ -16,6 +16,7 @@
                         <th class="py-3 px-6 text-left text-[12px] md:text-[14px] whitespace-nowrap">Reg Number</th>
                         <th class="py-3 px-6 text-left text-[12px] md:text-[14px] whitespace-nowrap">Booked Dates</th>
                         <th class="py-3 px-6 text-left text-[12px] md:text-[14px] whitespace-nowrap">Status</th>
+                        <th class="py-3 px-6 text-left text-[12px] md:text-[14px] whitespace-nowrap"></th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-700 text-sm">
@@ -53,6 +54,14 @@
                                   {{ $booking->vehicle->status }}
                                 </span>
                             </td>
+
+                             <td class="py-3 px-6 whitespace-nowrap cursor-pointer">
+                                <a href="{{ route('bookings.cancel', $booking->id) }}"
+                                    class="px-3 py-1 rounded-full text-black bg-red-500 text-xs font-semibold ">
+                                  Cancel
+                             </a>
+                            </td>
+
                         </tr>
                     @empty
                         <tr>
